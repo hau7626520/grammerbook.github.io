@@ -1,25 +1,89 @@
 // --- CONFIGURATION ---
 
-const NAV_HTML_CONTENT = `
-<div class="mb-4">
-    <button onclick="toggleChapter('ch1', this)" class="w-full flex items-center justify-between font-bold text-indigo-700 px-2 py-2 hover:bg-slate-50 rounded-lg transition text-left text-lg">
-        <span class="nav-text">Chapter 1 句子</span>
-        <span class="icon text-xl">−</span>
-    </button>
-    <div id="ch1" class="chapter-content expanded ml-2 border-l-2 border-slate-100">
-        <div class="mb-4">
-            <h3 class="nav-text text-sm font-semibold text-slate-500 mt-2 mb-1 px-4">Part 1 句子的定義</h3>
-            <ul class="space-y-1">
-                <li><a href="1-1-1.html" class="flex items-center gap-3 px-4 py-1 text-sm {active_1_1_1} text-slate-600 hover:bg-slate-50 transition"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span><span class="nav-text">1. 句子 (Sentences)</span></a></li>
-                <li><a href="1-1-2.html" class="flex items-center gap-3 px-4 py-1 text-sm {active_1_1_2} text-slate-600 hover:bg-slate-50 transition"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span><span class="nav-text">2. 主詞 (Subjects)</span></a></li>
-                <li><a href="1-1-3.html" class="flex items-center gap-3 px-4 py-1 text-sm {active_1_1_3} text-slate-600 hover:bg-slate-50 transition"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span><span class="nav-text">3. 述語 (Predicates)</span></a></li>
-                <li><a href="1-1-4.html" class="flex items-center gap-3 px-4 py-1 text-sm {active_1_1_4} text-slate-600 hover:bg-slate-50 transition"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span><span class="nav-text">4. 主詞補語 (Subject Complements)</span></a></li>
-                <li><a href="1-1-5.html" class="flex items-center gap-3 px-4 py-1 text-sm {active_1_1_5} text-slate-600 hover:bg-slate-50 transition"><span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span><span class="nav-text">5. 受詞 (Objects)</span></a></li>
-            </ul>
-        </div>
-    </div>
-</div>
+const NAV_STRUCTURE = {
+    'Chapter 1 句子 Sentences': {
+        id: 'ch1',
+        expanded: true,
+        color: 'indigo', // indigo, emerald, rose, etc.
+        parts: {
+            'Part 1 句子的定義': [
+                { title: '1. 句子 (Sentences)', url: '1-1-1.html' },
+                { title: '2. 主詞 (Subjects)', url: '1-1-2.html' },
+                { title: '3. 述語 (Predicates)', url: '1-1-3.html' },
+                { title: '4. 主詞補語 (Subject Complements)', url: '1-1-4.html' },
+                { title: '5. 受詞 (Objects)', url: '1-1-5.html' },
+                { title: '6. 狀語 (Adverbials)', url: '1-1-6.html' },
+                { title: '7. 定語 (Attributives)', url: 'under_construction.html' },
+                { title: '8. 受詞補語 (Object Complements)', url: 'under_construction.html' },
+            ],
+            'Part 2 句子的種類': [
+                { title: 'Part 2 句子的種類', url: 'under_construction.html' }
+            ]
+        }
+    },
+    'Chapter 2 名詞 Nouns': {
+        id: 'ch2',
+        expanded: false,
+        color: 'emerald',
+        parts: {
+            'Part 1 名詞的定義': [
+                { title: '1. 何謂名詞?', url: 'under_construction.html' },
+                { title: '2. 人物', url: 'under_construction.html' },
+                { title: '3. 無生命的事物', url: 'under_construction.html' },
+                { title: '4. 生物', url: 'under_construction.html' },
+                { title: '5. 情感', url: 'under_construction.html' },
+                { title: '6. 地點', url: 'under_construction.html' },
+            ],
+            'Part 2 名詞的種類': [
+                { title: '1. 普通名詞', url: 'under_construction.html' },
+                { title: '2. 專有名詞', url: 'under_construction.html' },
+                { title: '3. 抽象名詞', url: 'under_construction.html' },
+                { title: '4. 集合名詞', url: 'under_construction.html' },
+                { title: '5. 複合名詞', url: 'under_construction.html' },
+            ],
+            'Part 3 可數名詞與不可數名詞': [
+                { title: '1. 可數名詞', url: 'under_construction.html' },
+                { title: '2. 不可數名詞', url: 'under_construction.html' },
+                { title: '3. 作可數名詞或不可數名詞時, 意義有所不同的名詞', url: 'under_construction.html' },
+                { title: '4. 可數與不可數名詞常用的限定詞: some和any', url: 'under_construction.html' },
+            ],
+            'Part 4 名詞的單數複數形式': [
+                { title: '1. 單複數名詞的定義', url: 'under_construction.html' },
+                { title: '2. 規則名詞&複數形式', url: 'under_construction.html' },
+                { title: '3. 不規則名詞&複數形式', url: 'under_construction.html' },
+                { title: '4. 單位數量名詞&複數形式', url: 'under_construction.html' },
+                { title: '5. 複合名詞&複數形式', url: 'under_construction.html' },
+                { title: '6. 外來名詞&複數形式', url: 'under_construction.html' },
+                { title: '7. 人名&複數形式', url: 'under_construction.html' },
+                { title: '8. 永遠都是複數形式的名詞', url: 'under_construction.html' },
+            ],
+            'Part 5 名詞的所有格': [
+                { title: '1. 所有格的定義', url: 'under_construction.html' },
+                { title: '2. 所有格的構成', url: 'under_construction.html' },
+                { title: "3. 意義上相同的所有格: \"'s\"和\"of + 名詞\"", url: 'under_construction.html' },
+                { title: "4. 結構的不同用法: \"'s\"和\"of + 名詞\"", url: 'under_construction.html' },
+                { title: '5. 所有格可單獨使用', url: 'under_construction.html' },
+                { title: '6. 所有格修飾另一個所有格', url: 'under_construction.html' },
+                { title: '7. 專有名詞的所有格, 不和the/a/an連用', url: 'under_construction.html' },
+                { title: '8. 與the連用 + 複數姓氏的所有格前面', url: 'under_construction.html' },
+                { title: '9. 與the連用 + 普通名詞的所有格', url: 'under_construction.html' },
+                { title: '10. 節慶名稱的所有格', url: 'under_construction.html' },
+                { title: '11. 其他名詞的所有格', url: 'under_construction.html' },
+                { title: '12. 成對名詞的所有格', url: 'under_construction.html' },
+                { title: "13. 雙重所有格: of所有格 + 's所有格", url: 'under_construction.html' },
+                { title: "14. 's所有格 + of所有格", url: 'under_construction.html' },
+            ]
+        }
+    }
+};
+
+// This is a safelist for Tailwind CSS. By including the full class names here,
+// we ensure the Just-in-Time compiler generates them.
+const TAILWIND_SAFELIST = `
+  text-indigo-700 bg-indigo-50 border-indigo-500
+  text-emerald-700 bg-emerald-50 border-emerald-500
 `;
+
 
 // --- DYNAMIC STYLES ---
 
@@ -53,21 +117,58 @@ function addDynamicStyles() {
 }
 
 
-// --- NAVIGATION RENDERING ---
+// ---NAVIGATION RENDERING ---
 
 function renderNavigation(currentPage) {
-    let navContent = NAV_HTML_CONTENT;
-    const activeClass = 'bg-indigo-50 text-indigo-700 font-medium rounded-r-lg border-l-2 border-indigo-500 -ml-[2px]';
-    
-    navContent = navContent.replace('{active_1_1_1}', currentPage === '1-1-1.html' ? activeClass : 'hover:bg-slate-50');
-    navContent = navContent.replace('{active_1_1_2}', currentPage === '1-1-2.html' ? activeClass : 'hover:bg-slate-50');
-    navContent = navContent.replace('{active_1_1_3}', currentPage === '1-1-3.html' ? activeClass : 'hover:bg-slate-50');
-    navContent = navContent.replace('{active_1_1_4}', currentPage === '1-1-4.html' ? activeClass : 'hover:bg-slate-50');
-    navContent = navContent.replace('{active_1_1_5}', currentPage === '1-1-5.html' ? activeClass : 'hover:bg-slate-50');
+    let navHtml = '';
+    const inactiveClass = 'hover:bg-slate-50';
 
+    for (const chapterTitle in NAV_STRUCTURE) {
+        const chapter = NAV_STRUCTURE[chapterTitle];
+        const isExpanded = chapter.expanded;
+        const chapterColor = chapter.color; 
+
+        const chapterBtnClass = `text-${chapterColor}-700`;
+        const activeClass = `bg-${chapterColor}-50 text-${chapterColor}-700 font-medium rounded-r-lg border-l-2 border-${chapterColor}-500 -ml-[2px]`;
+        
+        navHtml += `
+            <div class="mb-4">
+                <button onclick="toggleChapter('${chapter.id}', this)" class="w-full flex items-center justify-between font-bold ${chapterBtnClass} px-2 py-2 hover:bg-slate-50 rounded-lg transition text-left text-lg">
+                    <span class="nav-text">${chapterTitle}</span>
+                    <span class="icon text-xl">${isExpanded ? '−' : '+'}</span>
+                </button>
+                <div id="${chapter.id}" class="chapter-content ${isExpanded ? 'expanded' : 'collapsed'} ml-2 border-l-2 border-slate-100">
+        `;
+
+        for (const partTitle in chapter.parts) {
+            const items = chapter.parts[partTitle];
+            navHtml += `
+                <div class="mb-4">
+                    <h3 class="nav-text text-sm font-semibold text-slate-500 mt-2 mb-1 px-4">${partTitle}</h3>
+            `;
+            if (items.length > 0) {
+                navHtml += '<ul class="space-y-1">';
+                for (const item of items) {
+                    const liClass = currentPage === item.url ? activeClass : inactiveClass;
+                    navHtml += `
+                        <li>
+                            <a href="${item.url}" class="flex items-center gap-3 px-4 py-1 text-sm ${liClass} text-slate-600 transition">
+                                <span class="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                                <span class="nav-text">${item.title}</span>
+                            </a>
+                        </li>
+                    `;
+                }
+                navHtml += '</ul>';
+            }
+            navHtml += '</div>';
+        }
+        navHtml += '</div></div>';
+    }
+    
     const navElement = document.createElement('nav');
     navElement.className = 'flex-1 overflow-y-auto sidebar-scroll p-4';
-    navElement.innerHTML = navContent;
+    navElement.innerHTML = navHtml;
 
     const placeholder = document.getElementById('sidebar-placeholder');
     if(placeholder) {
@@ -85,7 +186,6 @@ function renderNavigation(currentPage) {
         console.error('Sidebar placeholder not found!');
     }
 }
-
 
 function toggleChapter(id, btn) {
     const content = document.getElementById(id);

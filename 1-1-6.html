@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>英文文法武功祕笈 - 1-1-6 狀語</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;700&display=swap');
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .sidebar-scroll::-webkit-scrollbar { width: 4px; }
+        .sidebar-scroll::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 10px; }
+        .chapter-content { transition: max-height 0.3s ease-out; overflow: hidden; }
+        .chapter-content.collapsed { max-height: 0; }
+        .chapter-content.expanded { max-height: 2000px; }
+        
+        .option-btn:disabled { cursor: not-allowed; }
+        .correct { background-color: #10b981 !important; border-color: #059669 !important; color: white !important; }
+        .wrong { background-color: #f43f5e !important; border-color: #e11d48 !important; color: white !important; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .animate-fade-in { animation: fadeIn 0.5s ease-out forwards; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <div class="flex h-screen overflow-hidden">
+        <!-- 左側導覽列 -->
+        <aside class="w-80 bg-white border-r border-slate-200 flex flex-col shrink-0">
+            <div class="p-6 border-b border-slate-100 bg-indigo-600 text-white">
+                <h1 class="text-xl font-bold flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332-4.5-1.253" />
+                    </svg>
+                    英文文法武功祕笈
+                </h1>
+            </div>
+            
+            <div id="sidebar-placeholder"></div>
+            
+        </aside>
+
+        <!-- 右側內容區 -->
+        <main class="flex-1 overflow-y-auto bg-white">
+            <header class="sticky top-0 bg-white/80 backdrop-blur-md border-b border-slate-100 px-8 py-4 z-10">
+                <div class="flex items-center text-sm text-slate-500">
+                    <span id="current-path">Chapter 1 / Part 1 / 6. 狀語</span>
+                </div>
+            </header>
+
+            <article class="max-w-4xl mx-auto px-8 py-12">
+                <h1 class="text-4xl font-bold text-slate-900 mb-6">6. 狀語 (Adverbials)</h1>
+
+                <!-- 視覺化教學卡片 -->
+                <div class="mb-12 rounded-2xl overflow-hidden border border-slate-200 shadow-xl bg-gradient-to-br from-emerald-50 to-white p-8">
+                    <p class="text-center text-slate-600 mb-6">「狀語」是句子的修飾高手，讓動作、狀態或整個句子更具體、更生動。</p>
+                    <div class="flex items-center justify-center gap-2 md:gap-4 text-center flex-wrap">
+                        <!-- 副詞修飾對象 -->
+                        <div class="flex flex-col items-center">
+                            <div class="w-28 h-28 md:w-32 md:h-32 bg-white border-2 border-indigo-400 rounded-lg flex flex-col justify-center items-center shadow-lg p-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-indigo-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6m0 0v6m0-6h6m-6 0H6" />
+                                </svg>
+                                <span class="text-lg md:text-xl font-bold text-slate-800 font-mono mt-1">Adverbial</span>
+                            </div>
+                            <p class="text-xs text-slate-500 mt-2">（修飾語）</p>
+                        </div>
+
+                        <!-- 箭頭和被修飾對象 -->
+                        <div class="flex flex-col items-center text-slate-400">
+                             <div class="flex flex-col items-center opacity-70 mb-2">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 md:w-12 md:h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                                </svg>
+                                <span class="text-xs font-mono">modifies</span>
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-x-4 gap-y-2 text-center text-sm md:text-base">
+                            <div class="p-2 bg-indigo-50 border border-indigo-100 rounded-lg shadow-sm">動詞 (Verb)</div>
+                            <div class="p-2 bg-indigo-50 border border-indigo-100 rounded-lg shadow-sm">形容詞 (Adjective)</div>
+                            <div class="p-2 bg-indigo-50 border border-indigo-100 rounded-lg shadow-sm">副詞 (Adverb)</div>
+                            <div class="p-2 bg-indigo-50 border border-indigo-100 rounded-lg shadow-sm">整句 (Sentence)</div>
+                        </div>
+                    </div>
+                    <div class="mt-8 text-center bg-indigo-50 border border-indigo-100 rounded-xl p-4">
+                        <p class="font-mono text-lg"><span class="text-slate-500">He sings</span> <span class="text-emerald-600">beautifully</span>.</p>
+                        <p class="text-sm text-slate-500 mt-1">他唱得很優美。（副詞 beautifully 修飾動詞 sings）</p>
+                    </div>
+                </div>
+
+
+                <!-- A. 副詞 -->
+                <section class="mb-12">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold">A</span>
+                        <h2 class="text-2xl font-bold text-slate-800">副詞 (Adverb)</h2>
+                    </div>
+                    <p class="text-lg text-slate-600 mb-6 pl-10 leading-relaxed">
+                        副詞是用來修飾動詞、形容詞、另一個副詞或整個句子的詞，用來告訴我們事件發生的時間、地點、方式等，在句中做狀語。
+                    </p>
+                    <div class="pl-10 mb-8">
+                        <ul class="grid grid-cols-2 md:grid-cols-3 gap-4 list-none">
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">cheerfully <span class="text-slate-500">愉快地</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">however <span class="text-slate-500">然而</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">never <span class="text-slate-500">永不</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">often <span class="text-slate-500">時常</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">quickly <span class="text-slate-500">快速地</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">quietly <span class="text-slate-500">安靜地</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">really <span class="text-slate-500">真正地</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">yesterday <span class="text-slate-500">昨天</span></li>
+                            <li class="p-3 bg-slate-50 rounded-lg border border-slate-200 text-center">widely <span class="text-slate-500">廣泛地</span></li>
+                        </ul>
+                    </div>
+
+                    <div class="pl-10 space-y-4">
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="font-bold">Sarah</span> is <span class="text-blue-600 italic">very</span> naughty.</p>
+                            <p class="text-sm text-slate-600 mt-1">副詞 <span class="font-bold">very</span> 修飾形容詞 <span class="font-bold">naughty</span>。</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="font-bold">Leo</span> snored <span class="text-blue-600 italic">very loudly</span> last night.</p>
+                            <p class="text-sm text-slate-600 mt-1">副詞 <span class="font-bold">loudly</span> 用來修飾動詞 <span class="font-bold">snored</span>。副詞 <span class="font-bold">very</span> 則用來修飾另一個副詞 <span class="font-bold">loudly</span>。</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="font-bold">Olivia</span> <span class="text-blue-600 italic">cheerfully</span> sent a text message to Chloe.</p>
+                            <p class="text-sm text-slate-600 mt-1">副詞 <span class="font-bold">cheerfully</span> 修飾動詞 <span class="font-bold">sent</span>。</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                             <p class="font-mono text-base"><span class="font-bold">David</span> is reading <span class="text-blue-600 italic">quietly</span> in his cabin.</p>
+                            <p class="text-sm text-slate-600 mt-1">副詞 <span class="font-bold">quietly</span> 修飾動詞 <span class="font-bold">reading</span>。</p>
+                        </div>
+                        <div class="p-4 bg-blue-50 border-l-4 border-blue-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="text-blue-600 italic">However</span> <span class="font-bold">Alex</span> did his magic tricks, it was very clever of him.</p>
+                            <p class="text-sm text-slate-600 mt-1">副詞 <span class="font-bold">However</span> 修飾子句 <span class="font-bold">Alex did his magic tricks</span>。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- B. 副詞片語 -->
+                <section class="mb-12">
+                    <div class="flex items-center gap-2 mb-4">
+                        <span class="w-8 h-8 bg-indigo-100 text-indigo-600 rounded-full flex items-center justify-center font-bold">B</span>
+                        <h2 class="text-2xl font-bold text-slate-800">副詞片語 (Adverbial Phrase)</h2>
+                    </div>
+                    <p class="text-lg text-slate-600 mb-6 pl-10 leading-relaxed">
+                        副詞片語是具有和副詞相同功能的片語，在句中做狀語，表示條件、原因、目的、程度和方式等。這些副詞片語可以放在句首、句尾、句中，或其所修飾的成份前面。
+                    </p>
+                    
+                    <div class="pl-10 space-y-4">
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base">His dog is sleeping <span class="text-green-600 italic">on the rug</span> <span class="text-green-600 italic">with Ben</span>.</p>
+                            <p class="text-sm text-slate-600 mt-1">兩個介係詞片語 <span class="font-bold">on the rug</span> 和 <span class="font-bold">with Ben</span> 是副詞片語，修飾動詞 <span class="font-bold">is sleeping</span>。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="text-green-600 italic">Owing to his effort</span>, he will <span class="text-blue-600 italic">certainly</span> win.</p>
+                            <p class="text-sm text-slate-600 mt-1">介係詞片語 <span class="font-bold">Owing to his effort</span> 是句中的原因副詞片語(原因狀語)，副詞 <span class="font-bold">certainly</span> 修飾 <span class="font-bold">will win</span>。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="font-bold">Mark</span> is snoring <span class="text-green-600 italic">in a camper</span>.</p>
+                            <p class="text-sm text-slate-600 mt-1">介係詞片語 <span class="font-bold">in a camper</span> 是句中的地點副詞片語(地點狀語)。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                             <p class="font-mono text-base"><span class="font-bold">Ella</span> has been <span class="text-green-600 italic">in Kenya</span> <span class="text-green-600 italic">since 2008</span>.</p>
+                            <p class="text-sm text-slate-600 mt-1">介係詞片語 <span class="font-bold">in Kenya</span>(地點)和 <span class="font-bold">since 2008</span>(時間)是副詞片語做狀語，修飾動詞 <span class="font-bold">has been</span>。</p>
+                        </div>
+                         <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="text-green-600 italic">Encouraged by her previous success</span>, <span class="font-bold">Grace</span> tried to catch more birds.</p>
+                            <p class="text-sm text-slate-600 mt-1">前面的 <span class="font-bold">Encouraged...</span> 這組字是分詞片語，在句中做原因狀語。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="text-green-600 italic">To show politeness</span>, we should use polite phrases.</p>
+                            <p class="text-sm text-slate-600 mt-1">句首的 <span class="font-bold">To show politeness</span> 是不定式片語，作為目的狀語，修飾後面整個句子。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="font-bold">Sophie and Grace</span> are going to Canada <span class="text-green-600 italic">to study data science</span>.</p>
+                            <p class="text-sm text-slate-600 mt-1">句尾的不定式片語 <span class="font-bold">to study data science</span> 作為目的狀語，修飾動詞 <span class="font-bold">are going</span>。</p>
+                        </div>
+                         <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="text-green-600 italic">Since the wildfire destroyed our home</span>, we've been staying at the community center.</p>
+                            <p class="text-sm text-slate-600 mt-1"><span class="font-bold">since</span> 引導副詞子句，表示時間，作為時間狀語。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base"><span class="text-green-600 italic">With the help of Tom</span>, we finally got to Sydney.</p>
+                            <p class="text-sm text-slate-600 mt-1">介係詞片語做狀語。</p>
+                        </div>
+                        <div class="p-4 bg-green-50 border-l-4 border-green-400 rounded-r-lg">
+                            <p class="font-mono text-base">Did he win the race <span class="text-green-600 italic">by a narrow margin</span>?</p>
+                            <p class="text-sm text-slate-600 mt-1">介係詞片語做狀語。</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- 測驗練習區塊 -->
+                <section id="quiz-section" class="mt-16 p-8 bg-slate-50 rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                    <div class="flex items-center justify-between mb-8">
+                        <div class="flex items-center gap-3">
+                            <div class="p-2 bg-indigo-600 rounded-lg text-white shadow-md">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                                </svg>
+                            </div>
+                            <h2 class="text-2xl font-bold text-slate-800 uppercase tracking-wide">武功測驗</h2>
+                        </div>
+                        <button onclick="loadQuizzes()" class="text-xs text-indigo-600 font-bold bg-indigo-50 hover:bg-indigo-100 px-4 py-2 rounded-lg border border-indigo-200 transition">重新刷題</button>
+                    </div>
+
+                    <div id="quiz-loading" class="py-12 text-center text-slate-400">
+                        正在載入題目...
+                    </div>
+
+                    <div id="quiz-list" class="space-y-12 hidden">
+                        <!-- 題目由 JS 動態生成 -->
+                    </div>
+                </section>
+
+                <footer class="mt-20 pt-8 border-t border-slate-100 flex justify-between items-center text-slate-400">
+                    <p class="text-sm">© 2025 英文文法武功祕笈</p>
+                    <div class="flex gap-4 text-xs">
+                        <span>基礎練習</span>
+                        <span>系統化學習</span>
+                    </div>
+                </footer>
+            </article>
+        </main>
+    </div>
+
+    <script src="navigation.js"></script>
+    <script>
+        const currentLoc = { ch: "Chapter 1", part: "Part 1", section: "Section 6" };
+        const csvUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSOR2np8iW0fqcyVqhIBBpFX4pL0OeWBdfc82ZhhVcrPkBgr2jZKydm-Jqpi9lJHH1Th1lIjz5k2zeM/pub?output=csv';
+
+        async function loadQuizzes() {
+            const listContainer = document.getElementById('quiz-list');
+            const loader = document.getElementById('quiz-loading');
+            listContainer.classList.add('hidden');
+            loader.classList.remove('hidden');
+            listContainer.innerHTML = '';
+
+            try {
+                const response = await fetch(csvUrl);
+                const csvText = await response.text();
+                const rows = parseCSV(csvText);
+                
+                const filtered = rows.filter(r => 
+                    r.length >= 10 &&
+                    r[0].trim() === currentLoc.ch && 
+                    r[1].trim() === currentLoc.part && 
+                    r[2].trim() === currentLoc.section
+                );
+
+                if (filtered.length === 0) {
+                    loader.innerHTML = `<p>找不到題目。<br><small class="text-slate-500">${currentLoc.ch} / ${currentLoc.part} / ${currentLoc.section}</small></p>`;
+                    return;
+                }
+
+                const shuffled = filtered.sort(() => 0.5 - Math.random());
+                const selected = shuffled.slice(0, 3);
+
+                selected.forEach((q, idx) => {
+                    renderQuiz(q, idx);
+                });
+
+                loader.classList.add('hidden');
+                listContainer.classList.remove('hidden');
+            } catch (err) {
+                console.error("Fetch error:", err);
+                loader.textContent = "載入失敗。";
+            }
+        }
+
+        function parseCSV(text) {
+            const rows = [];
+            let current = [];
+            let field = "";
+            let inQuotes = false;
+            for (let i = 0; i < text.length; i++) {
+                const char = text[i];
+                if (char === '"') inQuotes = !inQuotes;
+                else if (char === ',' && !inQuotes) {
+                    current.push(field);
+                    field = "";
+                } else if (char === '\r' || char === '\n') {
+                    if (inQuotes) field += char;
+                    else if (field || current.length > 0) {
+                        current.push(field);
+                        rows.push(current);
+                        current = [];
+                        field = "";
+                    }
+                } else field += char;
+            }
+            if (field || current.length > 0) {
+                current.push(field);
+                rows.push(current);
+            }
+            return rows; 
+        }
+
+        function renderQuiz(data, qIdx) {
+            const container = document.getElementById('quiz-list');
+            const questionText = data[3];
+            const optionsRaw = [
+                { label: 'A', text: data[4] },
+                { label: 'B', text: data[5] },
+                { label: 'C', text: data[6] },
+                { label: 'D', text: data[7] }
+            ];
+            const correctLetter = data[8].trim().toUpperCase();
+            const explanation = data[9];
+            
+            const correctContent = optionsRaw.find(o => o.label === correctLetter)?.text || "";
+            const displayOptions = optionsRaw;
+
+            const quizHtml = `
+                <div class="quiz-item border-b border-slate-200 pb-12 last:border-0 animate-fade-in" style="animation-delay: ${qIdx * 0.1}s">
+                    <div class="mb-4">
+                        <span class="text-indigo-600 font-bold text-xs bg-indigo-50 border border-indigo-100 px-3 py-1 rounded-full">Question ${qIdx + 1}</span>
+                        <p class="text-xl mt-4 text-slate-800 font-bold leading-relaxed">${questionText}</p>
+                    </div>
+                    <div class="grid gap-3 mb-4">
+                        ${displayOptions.map((opt) => `
+                            <button onclick="handleAnswer(this, '${opt.text.replace(/'/g, "\\'")}', '${correctContent.replace(/'/g, "\\'")}', 'exp-${qIdx}')" 
+                                    class="option-btn text-left p-4 rounded-xl border border-slate-200 bg-white hover:border-indigo-300 hover:bg-indigo-50 transition duration-200 text-slate-700 shadow-sm">
+                                <span class="text-indigo-500 font-bold mr-2">${opt.label}.</span> ${opt.text}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="exp-${qIdx}" class="hidden">
+                        <button onclick="this.nextElementSibling.classList.toggle('hidden')" class="text-xs text-slate-500 underline mb-3 hover:text-indigo-600 transition">
+                            查看詳解
+                        </button>
+                        <div class="hidden p-5 bg-indigo-50 rounded-2xl border border-indigo-100 text-slate-700 text-sm leading-relaxed shadow-inner">
+                            <span class="text-indigo-600 font-bold block mb-1">【武功詳解】</span>
+                            <p class="mb-2"><strong class="text-emerald-600">正確答案：(${correctLetter})</strong></p>
+                            ${explanation}
+                        </div>
+                    </div>
+                </div>
+            `;
+            container.insertAdjacentHTML('beforeend', quizHtml);
+        }
+
+        function handleAnswer(btn, selectedText, correctText, expId) {
+            const parent = btn.parentElement;
+            const buttons = parent.querySelectorAll('.option-btn');
+            
+            let correctButtonElement = null;
+
+            // Find the correct button element by accurately comparing its text content.
+            buttons.forEach(b => {
+                // Extract the label part (e.g., "A. ") from the button's innerText.
+                const buttonLabelMatch = b.innerText.match(/^([A-D]\.\s+)/); 
+                if (buttonLabelMatch) {
+                    // Get the actual option text by removing the label.
+                    const optionText = b.innerText.substring(buttonLabelMatch[0].length).trim();
+                    if (optionText === correctText.trim()) {
+                        correctButtonElement = b; // Found the correct button element.
+                    }
+                }
+            });
+
+            // Iterate through all buttons to apply 'correct' or 'wrong' classes and disable them.
+            buttons.forEach(b => {
+                b.disabled = true; // Disable all buttons to prevent further interaction.
+
+                if (b === correctButtonElement) {
+                    b.classList.add('correct'); // Mark the identified correct button.
+                } else {
+                    b.classList.add('wrong'); // Mark all other buttons as wrong.
+                }
+            });
+
+            document.getElementById(expId).classList.remove('hidden'); // Show the explanation section.
+        }
+
+        window.onload = () => {
+            initializeLayout('1-1-6.html');
+            loadQuizzes();
+        };
+    </script>
+
+</body>
+</html>
